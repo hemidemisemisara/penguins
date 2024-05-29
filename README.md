@@ -159,7 +159,7 @@ No Auth will be implemented for the MVP.
 
 ## Roadmap
 
-1. Build stub backend for the GET /friendships/:id request, which returns hardcoded data.
+1. Build the backend for the GET /friendships/:id request, which returns hardcoded data.
 2. Build the frontend with the hardcoded data fetched from the backend.
 3. Create database for the back end.
 4. Linking the backend to database and request data.
