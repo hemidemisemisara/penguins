@@ -170,7 +170,7 @@ No Auth will be implemented for the MVP.
 9. Build backend PUT /things-in-common/:id and implement "edit first impression" functionality in the frontend.
 10. Build backend PUT /memories/:id and implement "update a memory" functionality in the frontend.
 11. Build backend POST /letters and implement "write a letter" functionality in the frontend.
-12. Build backend ##### POST /memories and implement "add a memory" functionality in the frontend.
+12. Build backend POST /memories and implement "add a memory" functionality in the frontend.
 
 ## Nice-to-haves
 
