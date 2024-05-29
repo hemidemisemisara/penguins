@@ -72,13 +72,14 @@ No external APIs will be used for the first sprint
 ### Data
 
 #### First Stage
+
 - Store everything in the JSON file in the backend.
 
 #### Second Stage
+
 - Implement database to connect to the backend.
 
-![Penguins database](src/assets/readme/penguins-database.png)
-<!-- Describe your data and the relationships between them. You can show this visually using diagrams, or write it out.  -->
+    ![Penguins database](src/assets/readme/penguins-database.png)
 
 ### Endpoints
 
@@ -154,13 +155,22 @@ Example Response:
 
 ### Auth
 
-<!-- Does your project include any login or user profile functionality? If so, describe how authentication/authorization will be implemented. -->
-
 No Auth will be implemented for the MVP.
 
 ## Roadmap
 
-<!-- Scope your project as a sprint. Break down the tasks that will need to be completed and map out timeframes for implementation. Think about what you can reasonably complete before the due date. The more detail you provide, the easier it will be to build. -->
+1. Build stub backend for the GET /friendships/:id request, which returns hardcoded data.
+2. Build the frontend with the hardcoded data fetched from the backend.
+3. Create database for the back end.
+4. Linking the backend to database and request data.
+5. Build backend for the GET /friendships/:id. 
+6. Make any fixes to the frontend to properly show dynamic data coming from the backend.
+7. Build backend PUT /how-where/:id and implement "edit how & where users met" functionality in the frontend.
+8. Build backend PUT /first-impression/:id and implement "edit first impression" functionality in the frontend.
+9. Build backend PUT /things-in-common/:id and implement "edit first impression" functionality in the frontend.
+10. Build backend PUT /memories/:id and implement "update a memory" functionality in the frontend.
+11. Build backend POST /letters and implement "write a letter" functionality in the frontend.
+12. Build backend ##### POST /memories and implement "add a memory" functionality in the frontend.
 
 ## Nice-to-haves
 
