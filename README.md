@@ -95,48 +95,56 @@ No external APIs will be used for the first sprint
 Example Response:
 ```
 [
-    {
+  {
+    "friendship-id": 1,
+    "user-1-first-name": "Sara",
+    "user-1-profile": "user-1.png",
+    "user-2-first-name": "Amanda",
+    "user-2-profile": "user-2.png",
+    "friends-since": "Apr 2024",
+    "letters": [
+      {
+        "id": 1,
         "friendship-id": 1,
-        "user-1-first-name": "Sara",
-        "user-1-profile": "Sara-profile.png",
-        "user-2-first-name": "Amanda",
-        "user-1-profile": "Amanda-profile.png",
-        "friends-since": "date",
-        "letters": [ 
-            {
-                "id": 1,
-                "content": "..."
-                "timestamp": 
-            }, ...
-        ],
-        "memories": [ 
-            {
-                "id": 1,
-                "created-by": "Sara",
-                "date": "date",
-                "title": "...",
-                "image": "memories-image1"
-            }, ...
-        ]
-        "things-in-common": [
-            {
-                "id": 1,
-                "description": "..."
-            }, ...
-        ]
-        "first-impression": [
-            {
-                "id": 1,
-                "created-by": "Sara", 
-                "description": "..."
-            }, ...
-        ]
-        "how-where": {
-            "id": 1,
-            "image": "image2"
-            "description": "..."
-        }
+        "created-by": 1,
+        "subject": "...",
+        "emailContent": "...",
+        "isRead": true
+      }
+    ],
+    "memories": [
+      {
+        "id": 1,
+        "friendship-id": 1,
+        "created-by": 1,
+        "date": "May 13 2024",
+        "title": "Amanda wearing Sara’s Sticker Tshirt",
+        "image": "memories-1.png"
+      }, ...
+    ],
+    "things-in-common": [
+      {
+        "id": 1,
+        "friendship-id": 1,
+        "description": "love bubble tea"
+      }, ...
+    ],
+    "first-impression": [
+      {
+        "id": 1,
+        "friendship-id": 1,
+        "created-by": 1,
+        "description": "...",
+        "image": "first-impressions-1.png"
+      }, ...
+    ],
+    "how-where": {
+      "id": 1,
+      "friendship-id": 1,
+      "image": "how-where-1.png",
+      "description": "..."
     }
+  }
 ]
 ```
 #### Stretch Goals
