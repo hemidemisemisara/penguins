@@ -1,0 +1,14 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.sub-heading {
+    @include flex();
+    gap: 0.5rem;
+    color: $color-bodytext;
+    &__line {
+        background-color: $color-primary;
+        width: 1.37rem;
+        height: 0.187rem;
+    }
+}
