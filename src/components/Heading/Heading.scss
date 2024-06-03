@@ -1,0 +1,16 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.heading {
+    @include flex();
+    gap: 1.5rem;
+    color: $color-headingtext;
+    text-transform: capitalize;
+    &__spade {
+        background-color: $color-primary;
+        width: 0.75rem;
+        height: 0.75rem;
+        transform: rotate(45deg);
+    }
+}
