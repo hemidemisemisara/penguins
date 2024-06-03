@@ -1,0 +1,24 @@
+@use "./variables" as *;
+@use "./fonts" as *;
+
+// Flex
+
+@mixin flex($justify: center, $align:center) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}
+
+// Media Queries
+
+@mixin tablet {
+    @media (min-width: $tablet-breakpoint) {
+        @content;        
+    }
+}
+
+@mixin desktop {
+    @media (min-width: $desktop-breakpoint) {
+        @content;
+    }
+}
