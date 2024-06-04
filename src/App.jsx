@@ -4,6 +4,7 @@ import SectionLetters from "./components/SectionLetters/SectionLetters";
 import SectionMemories from "./components/SectionMemories/SectionMemories";
 import SectionThingsInCommon from "./components/SectionThingsInCommon/SectionThingsInCommon";
 import SectionFirstImpressions from "./components/SectionFirstImpressions/SectionFirstImpressions";
+import SectionHowWhere from "./components/SectionHowWhere/SectionHowWhere";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
       <SectionMemories />
       <SectionThingsInCommon />
       <SectionFirstImpressions />
+      <SectionHowWhere />
     </>
   );
 }
