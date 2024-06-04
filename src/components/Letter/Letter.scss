@@ -5,7 +5,7 @@
     padding: 0.5rem 1rem;
     border-top: 1px solid $color-primary;
     border-bottom: 1px solid $color-primary;
-    background-color: $color-primary-light;
+   
     @include flex();
     gap: 1rem;
     &__icon {
@@ -18,4 +18,11 @@
     &__subject {
         color: $color-text-dark;
     }
+    &:first-child{
+        border-bottom: none;
+    }
+}
+
+.unread {
+    background-color: $color-primary-light;
 }
