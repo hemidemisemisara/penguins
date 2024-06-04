@@ -1,0 +1,15 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.button-back {
+    border: none;
+    background-color: transparent;
+    padding: 1rem;
+    transition: translate 300ms;
+    &__icon {
+        width: 1.6rem;
+    }
+    &:hover {
+        translate: -0.5rem;
+    }
+}

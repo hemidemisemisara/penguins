@@ -12,10 +12,12 @@ import LetterList from "./components/LetterList/LetterList";
 import memory from "./assets/images/memories-1.png";
 import firstImpression from "./assets/images/first-impressions-1.png";
 import userOne from "./assets/images/user-1.png";
+import ButtonBack from "./components/ButtonBack/ButtonBack";
 
 function App() {
   return (
     <>
+      <ButtonBack />
       <Button label={"label"} />
       <Letter
         status="unread"
