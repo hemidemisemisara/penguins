@@ -1,19 +1,16 @@
 @use "../../styles/partials/mixins" as *;
 
-.memories-section {
+.things-in-commmon-section {
     @include flex();
     flex-direction: column;
     gap: 1.5rem;
     margin: 3rem 1rem;
 }
 
-.memories {
-    @include flex();
+.things {
+    @include flex(center, start);
+    flex-direction: column;
     gap: 0.5rem;
-    flex-wrap: wrap;
-    max-width: 38rem;
-}
-
-.memory {
-    width: 30%;
+    margin: 0;
+    padding: 0;
 }
