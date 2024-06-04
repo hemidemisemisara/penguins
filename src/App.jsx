@@ -4,8 +4,10 @@ import Heading from "./components/Heading/Heading";
 import SubHeading from "./components/SubHeading/SubHeading";
 import PhotoCardLarge from "./components/PhotoCardLarge/PhotoCardLarge";
 import PhotoCardSmall from "./components/PhotoCardSmall/PhotoCardSmall";
+import Headshot from "./components/Headshot/Headshot";
 import memory from "./assets/images/memories-1.png";
 import firstImpression from "./assets/images/first-impressions-1.png";
+import userOne from "./assets/images/user-1.png";
 
 function App() {
   return (
@@ -25,6 +27,7 @@ function App() {
         alt={"image alt text"}
         title={"Back to the future"}
       />
+      <Headshot source={userOne} alt={"sara"} />
       <h1>Penguins</h1>
       <h2>Penguins</h2>
       <h3>Penguins</h3>

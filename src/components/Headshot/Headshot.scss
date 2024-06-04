@@ -1,0 +1,13 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.headshot {
+    padding: 0.3rem;
+    border-radius: 50%;
+    width: fit-content;
+    background-color: $color-purewhite;
+    &__img {
+        width: 6rem;
+        border-radius: 50%;
+    }
+}
