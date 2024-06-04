@@ -7,6 +7,7 @@ import PhotoCardSmall from "./components/PhotoCardSmall/PhotoCardSmall";
 import Headshot from "./components/Headshot/Headshot";
 import Headshots from "./components/HeadShots/Headshots";
 import ListItem from "./components/ListItem/ListItem";
+import Letter from "./components/Letter/Letter";
 import memory from "./assets/images/memories-1.png";
 import firstImpression from "./assets/images/first-impressions-1.png";
 import userOne from "./assets/images/user-1.png";
@@ -14,6 +15,16 @@ import userOne from "./assets/images/user-1.png";
 function App() {
   return (
     <>
+      <Letter
+        status="unread"
+        date="20240515"
+        subject="How is it going in Brasilia"
+      />
+      <Letter
+        status="read"
+        date="20240515"
+        subject="How is it going in Brasilia"
+      />
       <ListItem text="love bubble tea" />
       <Button label={"label"} />
       <Heading heading={"shared memories"} />
