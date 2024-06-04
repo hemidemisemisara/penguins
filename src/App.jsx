@@ -5,6 +5,8 @@ import SubHeading from "./components/SubHeading/SubHeading";
 import PhotoCardLarge from "./components/PhotoCardLarge/PhotoCardLarge";
 import PhotoCardSmall from "./components/PhotoCardSmall/PhotoCardSmall";
 import Headshot from "./components/Headshot/Headshot";
+import Headshots from "./components/HeadShots/Headshots";
+import ListItem from "./components/ListItem/ListItem";
 import memory from "./assets/images/memories-1.png";
 import firstImpression from "./assets/images/first-impressions-1.png";
 import userOne from "./assets/images/user-1.png";
@@ -12,6 +14,7 @@ import userOne from "./assets/images/user-1.png";
 function App() {
   return (
     <>
+      <ListItem text="love bubble tea" />
       <Button label={"label"} />
       <Heading heading={"shared memories"} />
       <SubHeading text={"friends since Apr 2023"} />
@@ -28,6 +31,7 @@ function App() {
         title={"Back to the future"}
       />
       <Headshot source={userOne} alt={"sara"} />
+      <Headshots />
       <h1>Penguins</h1>
       <h2>Penguins</h2>
       <h3>Penguins</h3>

@@ -1,9 +1,9 @@
 import PropTypes from "prop-types";
 import "./Headshot.scss";
 
-export default function Headshot({ source, alt }) {
+export default function Headshot({ source, alt, className }) {
   return (
-    <div className="headshot">
+    <div className={`headshot ${className}`}>
       <img className="headshot__img" src={source} alt={alt} />
     </div>
   );
@@ -12,4 +12,5 @@ export default function Headshot({ source, alt }) {
 Headshot.propTypes = {
   source: PropTypes.node.isRequired,
   alt: PropTypes.string.isRequired,
+  className: PropTypes.string,
 };
