@@ -9,6 +9,7 @@ import Headshots from "./components/HeadShots/Headshots";
 import ListItem from "./components/ListItem/ListItem";
 import Letter from "./components/Letter/Letter";
 import LetterList from "./components/LetterList/LetterList";
+import Header from "./components/Header/Header";
 import memory from "./assets/images/memories-1.png";
 import firstImpression from "./assets/images/first-impressions-1.png";
 import userOne from "./assets/images/user-1.png";
@@ -17,6 +18,7 @@ import ButtonBack from "./components/ButtonBack/ButtonBack";
 function App() {
   return (
     <>
+      <Header />
       <ButtonBack />
       <Button label={"label"} />
       <Letter

@@ -1,5 +1,6 @@
 @use "../../styles/partials/mixins" as *;
 
 .headshots {
+    padding-left: 1.25rem;
     @include flex();
 }
