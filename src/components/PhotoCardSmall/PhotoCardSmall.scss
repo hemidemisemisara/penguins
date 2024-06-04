@@ -2,24 +2,21 @@
 @use "../../styles/partials/mixins" as *;
 @use "../../styles/partials/variables" as *;
 
-.photocard-large {
+.photocard-small {
     @include flex();
     flex-direction: column;
     padding: 1rem;
     border-radius: 0.25rem;
     width: fit-content;
+    gap: 1rem;
     background-color: $color-purewhite;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     &__img {
-        width: 20rem;
-        height: 20rem;
+        width: 12.5rem;
         border-radius: 0.125rem;
     }
-    &__date {
-        padding-block: 0.5rem;
-        color: $color-text-dark;
-    }
     &__title {
+        padding-block: 0.5rem;
         color: $color-text-light;
     }
 }
