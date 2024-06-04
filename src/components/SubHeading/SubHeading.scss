@@ -5,10 +5,10 @@
 .sub-heading {
     @include flex();
     gap: 0.5rem;
-    color: $color-bodytext;
+    color: $color-text-dark;
     &__line {
         background-color: $color-primary;
-        width: 1.37rem;
+        width: 1.35rem;
         height: 0.187rem;
     }
 }

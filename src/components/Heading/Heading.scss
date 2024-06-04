@@ -5,7 +5,7 @@
 .heading {
     @include flex();
     gap: 1.5rem;
-    color: $color-headingtext;
+    color: $color-primary-dark;
     text-transform: capitalize;
     &__spade {
         background-color: $color-primary;
