@@ -1,6 +1,7 @@
 import "./App.scss";
 import Header from "./components/Header/Header";
 import SectionLetters from "./components/SectionLetters/SectionLetters";
+import SectionMemories from "./components/SectionMemories/SectionMemories";
 import Button from "./components/Button/Button";
 import Heading from "./components/Heading/Heading";
 import SubHeading from "./components/SubHeading/SubHeading";
@@ -21,6 +22,7 @@ function App() {
     <>
       <Header />
       <SectionLetters />
+      <SectionMemories />
       <ButtonBack />
       <Button label={"label"} />
       <Letter
