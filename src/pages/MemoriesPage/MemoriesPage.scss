@@ -1,9 +1,22 @@
 @use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
 
 .memories-page {
     position: relative;
+    max-width: 42rem;
+    margin: auto;
     &__header {
         @include flex();
         padding: 2rem 1rem;
+    }
+    &__heading {
+        color: $color-primary-dark;
+        font-size: 2rem;
+    }
+    &__memories {
+        @include flex();
+        flex-direction: column;
+        max-width: 38rem;
+        gap: 1.5rem;
     }
 }
