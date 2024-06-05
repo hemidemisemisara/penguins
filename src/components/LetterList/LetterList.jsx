@@ -1,5 +1,6 @@
 import "./LetterList.scss";
 import Letter from "../Letter/Letter";
+import { Link } from "react-router-dom";
 
 export default function LetterList({ friendshipDetails }) {
   const letters = friendshipDetails.letters;
@@ -7,12 +8,13 @@ export default function LetterList({ friendshipDetails }) {
     <div className="letter-list">
       {letters.map((letter) => {
         return (
-          <Letter
-            key={letter.id}
-            isRead={letter.isRead}
-            date={letter.timestamp}
-            subject={letter.subject}
-          />
+          <Link to={`/letter/${letter.id}`} key={letter.id}>
+            <Letter
+              isRead={letter.isRead}
+              date={letter.timestamp}
+              subject={letter.subject}
+            />
+          </Link>
         );
       })}
     </div>
