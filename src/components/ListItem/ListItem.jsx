@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import "./ListItem.scss";
 
 export default function ListItem({ text }) {
@@ -9,7 +8,3 @@ export default function ListItem({ text }) {
     </li>
   );
 }
-
-ListItem.propTypes = {
-  text: PropTypes.node.isRequired,
-};

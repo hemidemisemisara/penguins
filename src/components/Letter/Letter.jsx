@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import "./Letter.scss";
 import envelope from "../../assets/icons/envelope.svg";
 import envelopeOpen from "../../assets/icons/envelope-open.svg";
@@ -21,9 +20,3 @@ export default function Letter({ date, subject, status }) {
       </div>
     );
 }
-
-Letter.propTypes = {
-  date: PropTypes.string.isRequired,
-  subject: PropTypes.string.isRequired,
-  status: PropTypes.string.isRequired,
-};

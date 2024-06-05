@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import "./PhotoCardLarge.scss";
 
 export default function PhotoCardLarge({ source, alt, date, title }) {
@@ -10,10 +9,3 @@ export default function PhotoCardLarge({ source, alt, date, title }) {
     </div>
   );
 }
-
-PhotoCardLarge.propTypes = {
-  source: PropTypes.node.isRequired,
-  alt: PropTypes.string.isRequired,
-  date: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-};

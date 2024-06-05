@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import "./SubHeading.scss";
 
 export default function SubHeading({ text }) {
@@ -10,7 +9,3 @@ export default function SubHeading({ text }) {
     </div>
   );
 }
-
-SubHeading.propTypes = {
-  text: PropTypes.string.isRequired,
-};

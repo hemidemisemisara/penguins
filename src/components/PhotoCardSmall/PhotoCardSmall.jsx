@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import "./PhotoCardSmall.scss";
 
 export default function PhotoCardSmall({ source, alt, title }) {
@@ -9,9 +8,3 @@ export default function PhotoCardSmall({ source, alt, title }) {
     </div>
   );
 }
-
-PhotoCardSmall.propTypes = {
-  source: PropTypes.node.isRequired,
-  alt: PropTypes.string.isRequired,
-  title: PropTypes.string.isRequired,
-};

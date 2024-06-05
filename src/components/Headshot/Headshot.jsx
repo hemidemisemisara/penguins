@@ -1,4 +1,3 @@
-import PropTypes from "prop-types";
 import "./Headshot.scss";
 
 export default function Headshot({ source, alt, className }) {
@@ -8,9 +7,3 @@ export default function Headshot({ source, alt, className }) {
     </div>
   );
 }
-
-Headshot.propTypes = {
-  source: PropTypes.node.isRequired,
-  alt: PropTypes.string.isRequired,
-  className: PropTypes.string,
-};
