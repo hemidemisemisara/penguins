@@ -6,6 +6,8 @@
     background-color: transparent;
     padding: 1rem;
     transition: translate 300ms;
+    position: absolute;
+    left: 1rem;
     &__icon {
         width: 1.6rem;
     }

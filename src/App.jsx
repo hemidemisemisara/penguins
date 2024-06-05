@@ -1,20 +1,18 @@
 import "./App.scss";
-import Header from "./components/Header/Header";
-import SectionLetters from "./components/SectionLetters/SectionLetters";
-import SectionMemories from "./components/SectionMemories/SectionMemories";
-import SectionThingsInCommon from "./components/SectionThingsInCommon/SectionThingsInCommon";
-import SectionFirstImpressions from "./components/SectionFirstImpressions/SectionFirstImpressions";
-import SectionHowWhere from "./components/SectionHowWhere/SectionHowWhere";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import FriendshipPage from "./pages/FriendshipPage/FriendshipPage";
+import MemoriesPage from "./pages/MemoriesPage/MemoriesPage";
 
 function App() {
   return (
     <>
-      <Header />
-      <SectionLetters />
-      <SectionMemories />
-      <SectionThingsInCommon />
-      <SectionFirstImpressions />
-      <SectionHowWhere />
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<FriendshipPage />} />
+          <Route path="/memories/:id" element={<MemoriesPage />} />
+          <Route path="/letter/:id" element={"letter"} />
+        </Routes>
+      </BrowserRouter>
     </>
   );
 }

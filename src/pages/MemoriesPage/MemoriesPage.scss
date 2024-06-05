@@ -1,0 +1,9 @@
+@use "../../styles/partials/mixins" as *;
+
+.memories-page {
+    position: relative;
+    &__header {
+        @include flex();
+        padding: 2rem 1rem;
+    }
+}
