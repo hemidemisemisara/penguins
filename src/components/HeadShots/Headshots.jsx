@@ -2,7 +2,6 @@ import Headshot from "../Headshot/Headshot";
 import "./Headshots.scss";
 
 export default function Headshots({ friendshipDetails }) {
-  console.log("Headshots", friendshipDetails["user-1-profile"]);
   return (
     <div className="headshots">
       <Headshot

@@ -1,18 +1,21 @@
 import "./LetterList.scss";
 import Letter from "../Letter/Letter";
-export default function LetterList() {
+
+export default function LetterList({ friendshipDetails }) {
+  const letters = friendshipDetails.letters;
+  console.log("letters", letters);
   return (
     <div className="letter-list">
-      <Letter
-        status="unread"
-        date="20240515"
-        subject="How is it going in Brasilia"
-      />
-      <Letter
-        status="read"
-        date="20240515"
-        subject="How is it going in Brasilia"
-      />
+      {letters.map((letter) => {
+        return (
+          <Letter
+            key={letter.id}
+            isRead={letter.isRead}
+            date={letter.timestamp}
+            subject={letter.subject}
+          />
+        );
+      })}
     </div>
   );
 }

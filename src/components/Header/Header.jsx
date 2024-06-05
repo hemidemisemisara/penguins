@@ -3,7 +3,6 @@ import Headshots from "../HeadShots/Headshots";
 import SubHeading from "../SubHeading/SubHeading";
 
 export default function Header({ friendshipDetails }) {
-  console.log("headerpage", friendshipDetails["user-1-profile"]);
   return (
     <header className="header">
       <div className="header__wrapper">

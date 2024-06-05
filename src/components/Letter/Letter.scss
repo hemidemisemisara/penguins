@@ -17,8 +17,11 @@
     &__subject {
         color: $color-text-dark;
     }
-    &:first-child{
-        border-bottom: none;
+    &:last-child {
+        border-top: none;
+    }
+    &:only-child {
+        border-top: 1px solid $color-primary;
     }
 }
 
