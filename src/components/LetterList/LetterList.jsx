@@ -3,7 +3,6 @@ import Letter from "../Letter/Letter";
 
 export default function LetterList({ friendshipDetails }) {
   const letters = friendshipDetails.letters;
-  console.log("letters", letters);
   return (
     <div className="letter-list">
       {letters.map((letter) => {
