@@ -1,0 +1,50 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.letter-page {
+    @include flex();
+    position: relative;
+    flex-direction: column;
+    gap: 1rem;
+
+    &__header {
+        padding: 2rem 1rem;
+        display: block;
+    }
+    &__letter {
+        @include flex(center, start);
+        flex-direction: column;
+        gap: 1rem;
+        padding: 1rem;
+        margin: 1rem 2rem;
+        color: $color-text-light;
+        max-width: 38rem;
+    }
+    &__subject{
+        @include font-mobile-p-large;
+    }
+    &__send-info {
+        @include flex();
+        gap: 1rem;
+    }
+    &__photo {
+        width: 2.5rem;
+        border-radius: 50%;
+    }
+    &__sender-send-date {
+        @include flex();
+        gap: 1rem;
+    }
+    &__send-date {
+        color: $color-text-lighter;
+        font-size: 0.9rem;
+    }
+    &__send-to {
+        color: $color-text-lighter;
+        font-size: 0.9rem;
+    }
+    &__content {
+        line-height: 2rem;
+    }
+}

@@ -42,6 +42,12 @@
     font-weight: 400;
 }
 
+@mixin font-mobile-p-large {
+    font-family: Cabin;
+    font-size: 1.5rem;
+    font-weight: 400;
+}
+
 @mixin font-mobile-label {
     font-family: Cabin;
     font-size: 1rem;
