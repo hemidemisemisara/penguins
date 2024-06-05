@@ -1,7 +1,6 @@
 import "./LetterPage.scss";
 import ButtonBack from "../../components/ButtonBack/ButtonBack";
 import Button from "../../components/Button/Button";
-import user from "../../assets/images/user-1.png";
 import { useParams } from "react-router-dom";
 
 export default function LetterPage({ friendshipDetails }) {
@@ -10,6 +9,9 @@ export default function LetterPage({ friendshipDetails }) {
   const letters = friendshipDetails.letters;
   //TODO: Make the type the same
   const letter = letters.find((letter) => letter.id == letterId);
+  const senderId = letter["created-by"];
+  const sender = friendshipDetails.users.find((user) => user.id == senderId);
+  const receiver = friendshipDetails.users.find((user) => user.id !== senderId);
 
   return (
     <div className="letter-page">
@@ -19,28 +21,26 @@ export default function LetterPage({ friendshipDetails }) {
       <div className="letter-page__letter">
         <h2 className="letter-page__subject">{letter.subject}</h2>
         <div className="letter-page__send-info">
-          {/* TODO: load sender photo */}
-          <img className="letter-page__photo" src={user} alt="sara" />
+          <img
+            className="letter-page__photo"
+            src={sender["profile"]}
+            alt={sender["first-name"]}
+          />
           <div className="letter-page__info-text">
             <div className="letter-page__sender-send-date">
-              {/* TODO: update created-by*/}
-              <p className="letter-page__sender">{letter["created-by"]}</p>
+              <p className="letter-page__sender">{sender["first-name"]}</p>
               <p className="letter-page__send-date">{letter.timestamp}</p>
             </div>
-            {/* TODO: update send to*/}
-            <p className="letter-page__send-to">to Amanda</p>
+            <p className="letter-page__send-to">{`to ${receiver["first-name"]}`}</p>
           </div>
         </div>
-        {/* TODO: display changing lines */}
-        <p className="letter-page__content">
-          {
-            <div>
-              {letter.content.split("\n").map((line, index) => (
-                <p key={index}>{line}</p>
-              ))}
-            </div>
-          }
-        </p>
+        {
+          <div className="letter-page__content">
+            {letter.content.split("\n").map((line, index) => (
+              <p key={index}>{line}</p>
+            ))}
+          </div>
+        }
       </div>
       <Button label="reply" />
     </div>

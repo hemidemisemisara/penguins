@@ -7,7 +7,7 @@ export default function Header({ friendshipDetails }) {
     <header className="header">
       <div className="header__wrapper">
         <h1 className="header__heading">
-          {`${friendshipDetails["user-1-first-name"]} & ${friendshipDetails["user-2-first-name"]} `}
+          {`${friendshipDetails.users[0]["first-name"]} & ${friendshipDetails.users[1]["first-name"]} `}
         </h1>
       </div>
       <div className="header__bottom">
