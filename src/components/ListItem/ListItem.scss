@@ -1,0 +1,16 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.list-item {
+    @include flex();
+    gap: 0.5rem;
+    list-style: none;
+    color: $color-text-dark;
+    &__bullet {
+        width: 0.75rem;
+        height: 0.75rem;
+        border-radius: 50%;
+        background-color: $color-primary;
+    }
+}
+
