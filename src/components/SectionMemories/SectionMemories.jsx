@@ -4,7 +4,6 @@ import Button from "../Button/Button";
 
 export default function SectionMemories({ friendshipDetails }) {
   const memories = friendshipDetails.memories;
-
   return (
     <section className="memories-section">
       <Heading heading="shared memories" />
