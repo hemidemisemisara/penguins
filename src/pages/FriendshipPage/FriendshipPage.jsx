@@ -1,4 +1,5 @@
 import Header from "../../components/Header/Header";
+import Timezone from "../../components/Timezone/Timezone";
 import SectionLetters from "../../components/SectionLetters/SectionLetters";
 import SectionMemories from "../../components/SectionMemories/SectionMemories";
 import SectionThingsInCommon from "../../components/SectionThingsInCommon/SectionThingsInCommon";
@@ -9,6 +10,7 @@ export default function FriendshipPage({ friendshipDetails }) {
   return (
     <>
       <Header friendshipDetails={friendshipDetails} />
+      <Timezone friendshipDetails={friendshipDetails} />
       <SectionLetters friendshipDetails={friendshipDetails} />
       <SectionMemories friendshipDetails={friendshipDetails} />
       <SectionThingsInCommon friendshipDetails={friendshipDetails} />
