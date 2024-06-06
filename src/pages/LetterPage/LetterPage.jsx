@@ -7,11 +7,14 @@ export default function LetterPage({ friendshipDetails }) {
   const params = useParams();
   const letterId = params.id;
   const letters = friendshipDetails.letters;
-  //TODO: Make the type the same
-  const letter = letters.find((letter) => letter.id == letterId);
+  const letter = letters.find((letter) => letter.id === letterId);
   const senderId = letter["created-by"];
   const sender = friendshipDetails.users.find((user) => user.id == senderId);
   const receiver = friendshipDetails.users.find((user) => user.id !== senderId);
+  // formatting the date to May 15 2024
+  const sendDate = new Date(letter.timestamp);
+  const options = { year: "numeric", month: "long", day: "numeric" };
+  const formattedDate = sendDate.toLocaleDateString("en-US", options);
 
   return (
     <div className="letter-page">
@@ -29,7 +32,7 @@ export default function LetterPage({ friendshipDetails }) {
           <div className="letter-page__info-text">
             <div className="letter-page__sender-send-date">
               <p className="letter-page__sender">{sender["first-name"]}</p>
-              <p className="letter-page__send-date">{letter.timestamp}</p>
+              <p className="letter-page__send-date">{formattedDate}</p>
             </div>
             <p className="letter-page__send-to">{`to ${receiver["first-name"]}`}</p>
           </div>
