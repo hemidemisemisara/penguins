@@ -107,13 +107,16 @@ export default function HowWhereEditPage({
           formData.append("description", descriptionInput);
           if (file) {
             formData.append("image", file);
+            const originalFileName = howWhere.image.split("/").pop();
+            formData.append("originalFileName", originalFileName);
           }
-          console.log("formData", formData);
+          console.log("formData entries", Array.from(formData.entries())); // Debugging line
+
           await axios.put(
             `${import.meta.env.VITE_API_URL}/how-where/${howWhereId}`,
             formData,
             {
-              header: {
+              headers: {
                 "Content-Type": "multipart/form-data",
               },
             }
