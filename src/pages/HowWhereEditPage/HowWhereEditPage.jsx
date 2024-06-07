@@ -1,6 +1,7 @@
 import "./HowWhereEditPage.scss";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
 import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
 import Heading from "../../components/Heading/Heading";
@@ -11,6 +12,7 @@ import PhotoCardSmall from "../../components/PhotoCardSmall/PhotoCardSmall";
 export default function HowWhereEditPage({ friendshipDetails }) {
   const navigate = useNavigate();
   const howWhere = friendshipDetails["how-where"];
+  const howWhereId = friendshipDetails["how-where"].id;
   const [file, setFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(howWhere["image"]);
   const [titleInput, setTitleInput] = useState(howWhere["image-title"]);
@@ -26,14 +28,30 @@ export default function HowWhereEditPage({ friendshipDetails }) {
     setDescriptionInput(event.target.value);
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
     const cancelButton = form.querySelector(".button--secondary");
     if (event.nativeEvent.submitter === cancelButton) {
       navigate("/");
     } else {
-      console.log("submitted");
+      try {
+        const formData = new FormData();
+        formData.append("imageFile", file);
+        formData.append("image-title", titleInput);
+        formData.append("description", descriptionInput);
+        await axios.put(
+          `${import.meta.env.VITE_API_URL}/how-where/${howWhereId}`,
+          formData,
+          {
+            header: {
+              "Content-Type": "multipart/form-data",
+            },
+          }
+        );
+      } catch (error) {
+        console.error("Error in updating how & where we met", error);
+      }
     }
   };
 

@@ -8,9 +8,12 @@ export default function Input({
   setFile,
   setImagePreview,
 }) {
+  // when the file changes
   const onFileChange = (event) => {
+    // set the selected file to the new file
     const selectedFile = event.target.files[0];
     setFile(selectedFile);
+    // preview the file
     const reader = new FileReader();
     reader.onloadend = () => {
       setImagePreview(reader.result);
