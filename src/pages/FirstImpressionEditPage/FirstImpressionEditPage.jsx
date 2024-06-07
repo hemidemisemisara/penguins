@@ -21,7 +21,7 @@ export default function FirstImpressionEditPage({
   const firstImpressionOfCurrentUser = firstImpressions.find((impression) => {
     return impression["created-by"] === currentUserId;
   });
-  console.log("firstImpressionOfCurrentUser", firstImpressionOfCurrentUser);
+  //   console.log("firstImpressionOfCurrentUser", firstImpressionOfCurrentUser);
   const firstImpressionId = firstImpressionOfCurrentUser.id;
 
   const [file, setFile] = useState(null);
@@ -122,8 +122,6 @@ export default function FirstImpressionEditPage({
               .pop();
             formData.append("originalFileName", originalFileName);
           }
-          console.log("formData entries", Array.from(formData.entries())); // Debugging line
-
           await axios.put(
             `${
               import.meta.env.VITE_API_URL

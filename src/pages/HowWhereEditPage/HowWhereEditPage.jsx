@@ -110,8 +110,6 @@ export default function HowWhereEditPage({
             const originalFileName = howWhere.image.split("/").pop();
             formData.append("originalFileName", originalFileName);
           }
-          console.log("formData entries", Array.from(formData.entries())); // Debugging line
-
           await axios.put(
             `${import.meta.env.VITE_API_URL}/how-where/${howWhereId}`,
             formData,
