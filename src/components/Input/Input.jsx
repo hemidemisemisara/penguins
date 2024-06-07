@@ -30,7 +30,7 @@ export default function Input({
           value={value}
           onChange={onChange}
           maxLength="60"
-          required
+          id={name}
         />
       </div>
     );
@@ -43,6 +43,7 @@ export default function Input({
           name={name}
           value={value}
           onChange={onChange}
+          id={name}
         />
       </div>
     );

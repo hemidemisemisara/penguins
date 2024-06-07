@@ -9,6 +9,10 @@
     background-color: $color-purewhite;
     line-height: 1.5;
     width: fit-content;
+    &--error {
+        border: 1px solid $color-error;
+        background-color: $color-primary-light;
+    }
     &__input-field {
         @include font-mobile-p;
         color: $color-text-light;

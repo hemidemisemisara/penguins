@@ -1,5 +1,5 @@
 import "./HowWhereEditPage.scss";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 import Header from "../../components/Header/Header";
@@ -31,34 +31,70 @@ export default function HowWhereEditPage({
     setDescriptionInput(event.target.value);
   };
 
+  const isFormValid = () => titleInput.trim() && descriptionInput.trim();
+
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
+    console.log(form);
+    console.log(form["image-title"].parentElement);
     const cancelButton = form.querySelector(".button--secondary");
+    // if user clicks the cancel button, go to the home page
     if (event.nativeEvent.submitter === cancelButton) {
       navigate("/");
     } else {
-      try {
-        const formData = new FormData();
-        formData.append("image", file);
-        formData.append("title", titleInput);
-        formData.append("description", descriptionInput);
-        await axios.put(
-          `${import.meta.env.VITE_API_URL}/how-where/${howWhereId}`,
-          formData,
-          {
-            header: {
-              "Content-Type": "multipart/form-data",
-            },
+      if (isFormValid()) {
+        try {
+          const formData = new FormData();
+          formData.append("title", titleInput);
+          formData.append("description", descriptionInput);
+          if (file) {
+            formData.append("image", file);
           }
-        );
-        setDetailEdited(true);
-        navigate("/");
-      } catch (error) {
-        console.error("Error in updating how & where we met", error);
+          console.log("formData", formData);
+          await axios.put(
+            `${import.meta.env.VITE_API_URL}/how-where/${howWhereId}`,
+            formData,
+            {
+              header: {
+                "Content-Type": "multipart/form-data",
+              },
+            }
+          );
+          setDetailEdited(true);
+          navigate("/");
+        } catch (error) {
+          console.error("Error in updating how & where we met", error);
+        }
+      } else if (!titleInput.trim() && !descriptionInput.trim()) {
+        // if both input fields are empty, add error styling to both fields
+        form["image-title"].parentElement.classList.add("input--error");
+        form["description"].parentElement.classList.add("input--error");
+      } else if (!titleInput.trim()) {
+        // if title input is empty, add error styling to title input
+        form["image-title"].parentElement.classList.add("input--error");
+      } else if (!descriptionInput.trim()) {
+        // if description input is empty, add error styling to description input
+        form["description"].parentElement.classList.add("input--error");
       }
     }
   };
+
+  // if title field is not empty, remove the error styling
+  useEffect(() => {
+    if (titleInput) {
+      const titleInputField = document.querySelector("#image-title");
+      titleInputField.parentElement.classList.remove("input--error");
+    }
+  }, [titleInput]);
+
+  // if description field is not empty, remove the error styling
+  useEffect(() => {
+    if (descriptionInput) {
+      const descriptionInputField = document.querySelector("#description");
+      descriptionInputField.parentElement.classList.remove("input--error");
+    }
+  }, [descriptionInput]);
 
   return (
     <>
