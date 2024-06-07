@@ -6,6 +6,7 @@ import FriendshipPage from "./pages/FriendshipPage/FriendshipPage";
 import MemoriesPage from "./pages/MemoriesPage/MemoriesPage";
 import LetterPage from "./pages/LetterPage/LetterPage";
 import HowWhereEditPage from "./pages/HowWhereEditPage/HowWhereEditPage";
+import FirstImpressionEditPage from "./pages/FirstImpressionEditPage/FirstImpressionEditPage";
 
 function App() {
   // TODO: to be updated to useState when authentication is in place
@@ -67,6 +68,16 @@ function App() {
                 <HowWhereEditPage
                   friendshipDetails={friendshipDetails}
                   setDetailEdited={setDetailEdited}
+                />
+              }
+            />
+            <Route
+              path="/first-impression-edit"
+              element={
+                <FirstImpressionEditPage
+                  friendshipDetails={friendshipDetails}
+                  setDetailEdited={setDetailEdited}
+                  currentUserId={currentUserId}
                 />
               }
             />

@@ -1,4 +1,4 @@
-import "./HowWhereEditPage.scss";
+import "./FirstImpressionEditPage.scss";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast, Flip } from "react-toastify";
@@ -11,18 +11,28 @@ import SubHeading from "../../components/SubHeading/SubHeading";
 import Input from "../../components/Input/Input";
 import PhotoCardSmall from "../../components/PhotoCardSmall/PhotoCardSmall";
 
-export default function HowWhereEditPage({
+export default function FirstImpressionEditPage({
   friendshipDetails,
   setDetailEdited,
+  currentUserId,
 }) {
   const navigate = useNavigate();
-  const howWhere = friendshipDetails["how-where"];
-  const howWhereId = friendshipDetails["how-where"].id;
+  const firstImpressions = friendshipDetails["first-impressions"];
+  const firstImpressionOfCurrentUser = firstImpressions.find((impression) => {
+    return impression["created-by"] === currentUserId;
+  });
+  //   console.log("firstImpressionOfCurrentUser", firstImpressionOfCurrentUser);
+  const firstImpressionId = firstImpressionOfCurrentUser.id;
+
   const [file, setFile] = useState(null);
-  const [imagePreview, setImagePreview] = useState(howWhere["image"]);
-  const [titleInput, setTitleInput] = useState(howWhere["image-title"]);
+  const [imagePreview, setImagePreview] = useState(
+    firstImpressionOfCurrentUser["image"]
+  );
+  const [titleInput, setTitleInput] = useState(
+    firstImpressionOfCurrentUser["image-title"]
+  );
   const [descriptionInput, setDescriptionInput] = useState(
-    howWhere.description
+    firstImpressionOfCurrentUser.description
   );
 
   //   Toastify
@@ -66,7 +76,7 @@ export default function HowWhereEditPage({
     });
 
   const notifySuccess = () =>
-    toast.success("✨ How & where we met updated successfully", {
+    toast.success("✨ Your first impression updated successfully", {
       position: "top-center",
       autoClose: 2000,
       hideProgressBar: true,
@@ -107,11 +117,15 @@ export default function HowWhereEditPage({
           formData.append("description", descriptionInput);
           if (file) {
             formData.append("image", file);
-            const originalFileName = howWhere.image.split("/").pop();
+            const originalFileName = firstImpressionOfCurrentUser.image
+              .split("/")
+              .pop();
             formData.append("originalFileName", originalFileName);
           }
           await axios.put(
-            `${import.meta.env.VITE_API_URL}/how-where/${howWhereId}`,
+            `${
+              import.meta.env.VITE_API_URL
+            }/first-impression/${firstImpressionId}`,
             formData,
             {
               headers: {
@@ -123,7 +137,7 @@ export default function HowWhereEditPage({
           notifySuccess();
           setTimeout(navigateToHome, 2000);
         } catch (error) {
-          console.error("Error in updating how & where we met", error);
+          console.error("Error in updating the first impression", error);
         }
       } else if (!titleInput.trim() && !descriptionInput.trim()) {
         // if both input fields are empty, add error styling to both fields
@@ -162,10 +176,10 @@ export default function HowWhereEditPage({
     <>
       <ToastContainer />
       <Header friendshipDetails={friendshipDetails} />
-      <div className="how-where-edit">
-        <Heading heading="how & where we met" />
-        <form className="how-where-edit__form" onSubmit={handleSubmit}>
-          <div className="how-where-edit__image">
+      <div className="first-impression-edit">
+        <Heading heading="my first impression" />
+        <form className="first-impression-edit__form" onSubmit={handleSubmit}>
+          <div className="first-impression-edit__image">
             <SubHeading text="update image" />
             <PhotoCardSmall source={imagePreview} />
             <Input
@@ -175,7 +189,7 @@ export default function HowWhereEditPage({
               setImagePreview={setImagePreview}
             />
           </div>
-          <div className="how-where-edit__image-title-section">
+          <div className="first-impression-edit__image-title-section">
             <SubHeading text="update image title" />
             <Input
               type="input"
@@ -184,7 +198,7 @@ export default function HowWhereEditPage({
               onChange={handleChangeTitle}
             />
           </div>
-          <div className="how-where-edit__description-section">
+          <div className="first-impression-edit__description-section">
             <SubHeading text="update description" />
             <Input
               type="textarea"
@@ -193,7 +207,7 @@ export default function HowWhereEditPage({
               onChange={handleChangeDescription}
             />
           </div>
-          <div className="how-where-edit__buttons">
+          <div className="first-impression-edit__buttons">
             <Button
               label="cancel"
               addClass="button--secondary button--fullwidth"
