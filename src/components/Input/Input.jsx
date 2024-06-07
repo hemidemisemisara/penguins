@@ -50,6 +50,7 @@ export default function Input({
         <input
           className="input__input-field input__file-input"
           type="file"
+          name={name}
           accept="image/*"
           onChange={onFileChange}
         />

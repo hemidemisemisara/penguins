@@ -9,7 +9,10 @@ import SubHeading from "../../components/SubHeading/SubHeading";
 import Input from "../../components/Input/Input";
 import PhotoCardSmall from "../../components/PhotoCardSmall/PhotoCardSmall";
 
-export default function HowWhereEditPage({ friendshipDetails }) {
+export default function HowWhereEditPage({
+  friendshipDetails,
+  setDetailEdited,
+}) {
   const navigate = useNavigate();
   const howWhere = friendshipDetails["how-where"];
   const howWhereId = friendshipDetails["how-where"].id;
@@ -37,8 +40,8 @@ export default function HowWhereEditPage({ friendshipDetails }) {
     } else {
       try {
         const formData = new FormData();
-        formData.append("imageFile", file);
-        formData.append("image-title", titleInput);
+        formData.append("image", file);
+        formData.append("title", titleInput);
         formData.append("description", descriptionInput);
         await axios.put(
           `${import.meta.env.VITE_API_URL}/how-where/${howWhereId}`,
@@ -49,6 +52,8 @@ export default function HowWhereEditPage({ friendshipDetails }) {
             },
           }
         );
+        setDetailEdited(true);
+        navigate("/");
       } catch (error) {
         console.error("Error in updating how & where we met", error);
       }
@@ -66,6 +71,7 @@ export default function HowWhereEditPage({ friendshipDetails }) {
             <PhotoCardSmall source={imagePreview} />
             <Input
               type="file"
+              name="image"
               setFile={setFile}
               setImagePreview={setImagePreview}
             />
