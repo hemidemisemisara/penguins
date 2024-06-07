@@ -14,9 +14,14 @@
     &__img {
         width: 12.5rem;
         border-radius: 0.125rem;
+        object-fit: cover;
     }
     &__title {
         padding-block: 0.5rem;
         color: $color-text-light;
+        width: 12.5rem;
+        text-align: center;
+        text-wrap: wrap;
+        overflow-wrap: break-word;
     }
 }

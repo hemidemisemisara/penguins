@@ -1,0 +1,43 @@
+@use "../../styles/partials/fonts" as *;
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.input {
+    @include flex();
+    border-radius: 0.25rem;
+    border: 1px solid $color-primary;
+    background-color: $color-purewhite;
+    line-height: 1.5;
+    width: fit-content;
+    &--error {
+        border: 1px solid $color-error;
+        background-color: $color-primary-light;
+    }
+    &__input-field {
+        @include font-mobile-p;
+        color: $color-text-light;
+        border: none;
+        padding: 0.5rem 1rem;
+        background-color: transparent;
+        width: 20rem;
+    }
+    &__text-area {
+        resize: none;
+        height: 10rem;
+    }
+    &__file-input {
+        @include flex();
+        &::file-selector-button {
+            color: $color-purewhite;
+            background-color: $color-primary;
+            border: 1px solid $color-primary;
+            padding: 0.5rem 1rem;
+            border-radius: 3rem;
+            &:hover {
+                color: $color-primary;
+                background-color: $color-purewhite;
+            }
+        }
+    }
+
+}
