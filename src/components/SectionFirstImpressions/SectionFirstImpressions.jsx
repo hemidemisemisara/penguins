@@ -3,9 +3,14 @@ import Heading from "../Heading/Heading";
 import Button from "../Button/Button";
 import PhotoCardSmall from "../PhotoCardSmall/PhotoCardSmall";
 import SubHeading from "../SubHeading/SubHeading";
+import { useNavigate } from "react-router-dom";
 
 export default function SectionFirstImpressions({ friendshipDetails }) {
   const firstImpressions = friendshipDetails["first-impressions"];
+  const navigate = useNavigate();
+  const clickEdit = () => {
+    navigate("/first-impression-edit");
+  };
 
   return (
     <section className="first-impressions">
@@ -26,7 +31,7 @@ export default function SectionFirstImpressions({ friendshipDetails }) {
           </div>
         );
       })}
-      <Button label="edit" />
+      <Button label="edit" onClick={clickEdit} />
     </section>
   );
 }
