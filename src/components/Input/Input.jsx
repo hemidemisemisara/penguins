@@ -29,6 +29,8 @@ export default function Input({
           name={name}
           value={value}
           onChange={onChange}
+          maxLength="60"
+          required
         />
       </div>
     );
