@@ -1,6 +1,8 @@
 import "./HowWhereEditPage.scss";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { ToastContainer, toast, Flip } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
 import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
@@ -23,6 +25,59 @@ export default function HowWhereEditPage({
     howWhere.description
   );
 
+  //   Toastify
+  const notifyBothFields = () =>
+    toast.error("✍️ Please fill out both fields", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Flip,
+    });
+
+  const notifyTitle = () =>
+    toast.error("✍️ Please fill out the title", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Flip,
+    });
+
+  const notifyDescription = () =>
+    toast.error("✍️ Please fill out the description", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Flip,
+    });
+
+  const notifySuccess = () =>
+    toast.success("✨ How & where we met updated successfully", {
+      position: "top-center",
+      autoClose: 2000,
+      hideProgressBar: true,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+      transition: Flip,
+    });
+
   const handleChangeTitle = (event) => {
     setTitleInput(event.target.value);
   };
@@ -31,17 +86,19 @@ export default function HowWhereEditPage({
     setDescriptionInput(event.target.value);
   };
 
+  const navigateToHome = () => {
+    navigate("/");
+  };
+
   const isFormValid = () => titleInput.trim() && descriptionInput.trim();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     const form = event.target;
-    console.log(form);
-    console.log(form["image-title"].parentElement);
     const cancelButton = form.querySelector(".button--secondary");
-    // if user clicks the cancel button, go to the home page
     if (event.nativeEvent.submitter === cancelButton) {
-      navigate("/");
+      // if user clicks the cancel button, go to the home page
+      navigateToHome();
     } else {
       if (isFormValid()) {
         try {
@@ -62,7 +119,8 @@ export default function HowWhereEditPage({
             }
           );
           setDetailEdited(true);
-          navigate("/");
+          notifySuccess();
+          setTimeout(navigateToHome, 2000);
         } catch (error) {
           console.error("Error in updating how & where we met", error);
         }
@@ -70,12 +128,15 @@ export default function HowWhereEditPage({
         // if both input fields are empty, add error styling to both fields
         form["image-title"].parentElement.classList.add("input--error");
         form["description"].parentElement.classList.add("input--error");
+        notifyBothFields();
       } else if (!titleInput.trim()) {
         // if title input is empty, add error styling to title input
         form["image-title"].parentElement.classList.add("input--error");
+        notifyTitle();
       } else if (!descriptionInput.trim()) {
         // if description input is empty, add error styling to description input
         form["description"].parentElement.classList.add("input--error");
+        notifyDescription();
       }
     }
   };
@@ -102,6 +163,7 @@ export default function HowWhereEditPage({
       <div className="how-where-edit">
         <Heading heading="how & where we met" />
         <form className="how-where-edit__form" onSubmit={handleSubmit}>
+          <ToastContainer />
           <div className="how-where-edit__image">
             <SubHeading text="update image" />
             <PhotoCardSmall source={imagePreview} />
