@@ -5,6 +5,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import FriendshipPage from "./pages/FriendshipPage/FriendshipPage";
 import MemoriesPage from "./pages/MemoriesPage/MemoriesPage";
 import LetterPage from "./pages/LetterPage/LetterPage";
+import HowWhereEditPage from "./pages/HowWhereEditPage/HowWhereEditPage";
 
 function App() {
   // TODO: to be updated to useState when authentication is in place
@@ -56,6 +57,12 @@ function App() {
                   friendshipDetails={friendshipDetails}
                   currentUserId={currentUserId}
                 />
+              }
+            />
+            <Route
+              path="/how-where-edit"
+              element={
+                <HowWhereEditPage friendshipDetails={friendshipDetails} />
               }
             />
           </Routes>

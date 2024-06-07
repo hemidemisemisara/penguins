@@ -15,4 +15,16 @@
         background-color: $color-purewhite;
         color: $color-primary;
     }
+    &--secondary {
+        border: 1px solid $color-secondary;
+        background-color: $color-secondary;
+        &:hover {
+            border: 1px solid $color-secondary;
+            background-color: $color-purewhite;
+            color: $color-secondary;
+        }
+    }
+    &--fullwidth {
+        width: 100%;
+    }
 }
