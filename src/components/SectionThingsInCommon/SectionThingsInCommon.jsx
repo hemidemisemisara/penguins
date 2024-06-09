@@ -2,8 +2,13 @@ import "./SectionThingsInCommon.scss";
 import Heading from "../Heading/Heading";
 import Button from "../Button/Button";
 import ListItem from "../ListItem/ListItem";
+import { useNavigate } from "react-router-dom";
 
 export default function SectionThingsInCommon({ friendshipDetails }) {
+  const navigate = useNavigate();
+  const clickEdit = () => {
+    navigate("/things-in-common-edit");
+  };
   const thingsInCommon = friendshipDetails["things-in-common"];
   return (
     <section className="things-in-commmon-section">
@@ -13,7 +18,7 @@ export default function SectionThingsInCommon({ friendshipDetails }) {
           <ListItem key={thing.id} text={thing.description} />
         ))}
       </ul>
-      <Button label="edit" />
+      <Button label="edit" onClick={clickEdit} />
     </section>
   );
 }
