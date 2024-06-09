@@ -131,18 +131,20 @@ export default function ThingsInCommonEditPage({
         <div className="things-in-common-edit__current">
           <SubHeading text="current items" />
           <div className="things-in-common-edit__things">
-            {thingsInCommon.map((thing) => (
-              <div key={thing.id} className="things-in-common-edit__thing">
-                <ListItem text={thing.description} />
-                <img
-                  id={thing.id}
-                  className="things-in-common-edit__icon"
-                  src={trashIcon}
-                  alt="trash"
-                  onClick={handleDelete}
-                />
-              </div>
-            ))}
+            {thingsInCommon
+              .sort((a, b) => b.timestamp - a.timestamp)
+              .map((thing) => (
+                <div key={thing.id} className="things-in-common-edit__thing">
+                  <ListItem text={thing.description} />
+                  <img
+                    id={thing.id}
+                    className="things-in-common-edit__icon"
+                    src={trashIcon}
+                    alt="trash"
+                    onClick={handleDelete}
+                  />
+                </div>
+              ))}
           </div>
         </div>
         <div className="things-in-common-edit__buttons">

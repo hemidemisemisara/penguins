@@ -14,9 +14,11 @@ export default function SectionThingsInCommon({ friendshipDetails }) {
     <section className="things-in-commmon-section">
       <Heading heading="things in common" />
       <ul className="things">
-        {thingsInCommon.map((thing) => (
-          <ListItem key={thing.id} text={thing.description} />
-        ))}
+        {thingsInCommon
+          .sort((a, b) => b.timestamp - a.timestamp)
+          .map((thing) => (
+            <ListItem key={thing.id} text={thing.description} />
+          ))}
       </ul>
       <Button label="edit" onClick={clickEdit} />
     </section>
