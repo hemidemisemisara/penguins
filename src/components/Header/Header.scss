@@ -1,0 +1,21 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.header {
+    &__wrapper {
+        @include flex();
+        flex-direction: column;
+        padding: 5rem;
+        background: linear-gradient(300deg, rgba(220, 129, 140, 0.91) 11.86%, rgba(232, 187, 244, 0.91) 84.65%);
+    }
+    &__heading {
+        color: $color-purewhite;
+    }
+    &__bottom {
+        @include flex(center);
+        flex-direction: column;
+        gap: 1rem;
+        position: relative;
+        top: -3rem;
+    }
+}

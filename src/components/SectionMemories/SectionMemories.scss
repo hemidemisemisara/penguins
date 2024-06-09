@@ -1,0 +1,20 @@
+@use "../../styles/partials/mixins" as *;
+
+.memories-section {
+    @include flex();
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 3rem 1rem;
+}
+
+.memories {
+    @include flex();
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    max-width: 38rem;
+}
+
+.memory {
+    width: 30%;
+    cursor: pointer;
+}

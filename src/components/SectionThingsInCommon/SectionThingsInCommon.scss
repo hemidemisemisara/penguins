@@ -1,0 +1,16 @@
+@use "../../styles/partials/mixins" as *;
+
+.things-in-commmon-section {
+    @include flex();
+    flex-direction: column;
+    gap: 1.5rem;
+    margin: 3rem 1rem;
+}
+
+.things {
+    @include flex(center, start);
+    flex-direction: column;
+    gap: 0.5rem;
+    margin: 0;
+    padding: 0;
+}

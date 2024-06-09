@@ -1,0 +1,30 @@
+@use "../../styles/partials/variables" as *;
+@use "../../styles/partials/fonts" as *;
+
+.button{
+    @include font-mobile-label;
+    background-color: $color-primary;
+    color: $color-purewhite;
+    padding: 0.5rem 2rem;
+    border-radius: 1.5rem;
+    text-transform: capitalize;
+    transition: all 300ms;
+    border: 1px solid transparent;
+    &:hover {
+        border: 1px solid $color-primary;
+        background-color: $color-purewhite;
+        color: $color-primary;
+    }
+    &--secondary {
+        border: 1px solid $color-secondary;
+        background-color: $color-secondary;
+        &:hover {
+            border: 1px solid $color-secondary;
+            background-color: $color-purewhite;
+            color: $color-secondary;
+        }
+    }
+    &--fullwidth {
+        width: 100%;
+    }
+}

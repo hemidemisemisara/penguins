@@ -1,0 +1,40 @@
+@use "../../styles/partials/mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+.first-impression-edit {
+    @include flex();
+    flex-direction: column;
+    position: relative;
+    gap: 1rem;
+    max-width: 42rem;
+    margin: auto;
+    padding: 0 1rem;
+    &__form {
+        padding: 0 1rem;
+        @include flex();
+        flex-direction: column;
+        gap: 2rem;
+        flex-grow: 1;
+    }
+    &__image {
+        @include flex();
+        flex-direction: column;
+        gap: 1rem;
+    }
+    &__image-title-section {
+        @include flex();
+        flex-direction: column;
+        gap: 1rem;
+        flex-grow: 1;
+    }
+    &__description-section {
+        @include flex();
+        flex-direction: column;
+        gap: 1.2rem;
+    }
+    &__buttons {
+        width: 100%;
+        @include flex();
+        gap: 1rem;
+    }
+}

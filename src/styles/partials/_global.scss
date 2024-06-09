@@ -1,0 +1,43 @@
+@use "./fonts" as *;
+@use "./mixins" as *;
+@use "../../styles/partials/variables" as *;
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: "Cabin";
+    background-color: $color-background-white;
+}
+
+h1, h2, h3, h4, h5, h6, p {
+    margin: 0;
+}
+
+h1 {
+    @include font-mobile-h1;
+}
+
+h2 {
+    @include font-mobile-h2;
+}
+
+h3 {
+    @include font-mobile-h3;
+}
+
+p {
+    @include font-mobile-p;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    text-decoration: none;
+}
