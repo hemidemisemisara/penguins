@@ -1,5 +1,6 @@
 import "./ThingsInCommonEditPage.scss";
 import axios from "axios";
+import Swal from "sweetalert2";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast, Flip } from "react-toastify";
@@ -42,19 +43,6 @@ export default function ThingsInCommonEditPage({
       transition: Flip,
     });
 
-  const notifySuccess = () =>
-    toast.success("✨ New thing in common added successfully", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-      transition: Flip,
-    });
-
   const addNewThing = async (event) => {
     const form = event.target;
     event.preventDefault();
@@ -68,11 +56,49 @@ export default function ThingsInCommonEditPage({
           description: newThingInput,
         });
         setDetailEdited(true);
-        notifySuccess();
+        Swal.fire({
+          icon: "success",
+          title: "New thing in common has been saved",
+          showConfirmButton: false,
+          timer: 1500,
+        });
       } catch (error) {
         console.error("unable to add a new thing in common", error);
       }
     }
+  };
+
+  const handleDelete = async (event) => {
+    event.preventDefault();
+    const thingId = event.target.id;
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#ff4343",
+      cancelButtonColor: "#DC818C",
+      confirmButtonText: "Yes, delete it!",
+    }).then(async (result) => {
+      if (result.isConfirmed) {
+        try {
+          await axios.delete(
+            `${import.meta.env.VITE_API_URL}/things-in-common/${thingId}`
+          );
+          Swal.fire({
+            title: "Deleted!",
+            text: "This thing in common has been deleted.",
+            icon: "success",
+          });
+          setDetailEdited(true);
+        } catch (error) {
+          console.error(
+            `unable to delete the thing in common with ID: ${thingId}`,
+            error
+          );
+        }
+      }
+    });
   };
 
   useEffect(() => {
@@ -109,9 +135,11 @@ export default function ThingsInCommonEditPage({
               <div key={thing.id} className="things-in-common-edit__thing">
                 <ListItem text={thing.description} />
                 <img
+                  id={thing.id}
                   className="things-in-common-edit__icon"
                   src={trashIcon}
                   alt="trash"
+                  onClick={handleDelete}
                 />
               </div>
             ))}
