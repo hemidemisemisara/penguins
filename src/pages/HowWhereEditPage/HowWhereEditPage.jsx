@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast, Flip } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import Swal from "sweetalert2";
 import axios from "axios";
 import Header from "../../components/Header/Header";
 import Button from "../../components/Button/Button";
@@ -65,19 +66,6 @@ export default function HowWhereEditPage({
       transition: Flip,
     });
 
-  const notifySuccess = () =>
-    toast.success("✨ How & where we met updated successfully", {
-      position: "top-center",
-      autoClose: 2000,
-      hideProgressBar: true,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
-      progress: undefined,
-      theme: "colored",
-      transition: Flip,
-    });
-
   const handleChangeTitle = (event) => {
     setTitleInput(event.target.value);
   };
@@ -120,7 +108,12 @@ export default function HowWhereEditPage({
             }
           );
           setDetailEdited(true);
-          notifySuccess();
+          Swal.fire({
+            icon: "success",
+            title: "How & where we met updated successfully",
+            showConfirmButton: false,
+            timer: 1500,
+          });
           setTimeout(navigateToHome, 2000);
         } catch (error) {
           console.error("Error in updating how & where we met", error);

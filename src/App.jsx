@@ -7,6 +7,7 @@ import MemoriesPage from "./pages/MemoriesPage/MemoriesPage";
 import LetterPage from "./pages/LetterPage/LetterPage";
 import HowWhereEditPage from "./pages/HowWhereEditPage/HowWhereEditPage";
 import FirstImpressionEditPage from "./pages/FirstImpressionEditPage/FirstImpressionEditPage";
+import ThingsInCommonEditPage from "./pages/ThingsInCommonEditPage/ThingsInCommonEditPage";
 
 function App() {
   // TODO: to be updated to useState when authentication is in place
@@ -75,6 +76,16 @@ function App() {
               path="/first-impression-edit"
               element={
                 <FirstImpressionEditPage
+                  friendshipDetails={friendshipDetails}
+                  setDetailEdited={setDetailEdited}
+                  currentUserId={currentUserId}
+                />
+              }
+            />
+            <Route
+              path="/things-in-common-edit"
+              element={
+                <ThingsInCommonEditPage
                   friendshipDetails={friendshipDetails}
                   setDetailEdited={setDetailEdited}
                   currentUserId={currentUserId}
