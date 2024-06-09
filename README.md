@@ -29,12 +29,13 @@ Current social media platforms are primarily focused on individual self-presenta
 #### Stretch Goals
 
 - Edit friendship details
-    - Edit how & where you and your friends met
+    - Edit how & where you and your friend met
     - Edit your first impression of the friend 
     - Edit things in common with your friend
-    - Edit memory details
+    - Delete things in common with your friend
+    - Add new thing in common with your friend
 - Write a new letter
-- Add photos when you spend time together
+- Add a new memory
 
 
 ## Implementation
