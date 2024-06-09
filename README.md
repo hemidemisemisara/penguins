@@ -30,10 +30,9 @@ Current social media platforms are primarily focused on individual self-presenta
 
 - Edit friendship details
     - Edit how & where you and your friend met
-    - Edit your first impression of the friend 
-    - Edit things in common with your friend
-    - Delete things in common with your friend
+    - Edit your first impression of the friend
     - Add new thing in common with your friend
+    - Delete things in common with your friend
 - Write a new letter
 - Add a new memory
 
