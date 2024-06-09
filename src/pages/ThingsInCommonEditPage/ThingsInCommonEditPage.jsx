@@ -19,6 +19,8 @@ export default function ThingsInCommonEditPage({
   const navigateToHome = () => {
     navigate("/");
   };
+
+  const friendshipId = friendshipDetails["friendship-id"];
   const thingsInCommon = friendshipDetails["things-in-common"];
   const [newThingInput, setNewThingInput] = useState("");
 
@@ -41,7 +43,7 @@ export default function ThingsInCommonEditPage({
     });
 
   const notifySuccess = () =>
-    toast.success("✨ Things in common updated successfully", {
+    toast.success("✨ New thing in common added successfully", {
       position: "top-center",
       autoClose: 2000,
       hideProgressBar: true,
@@ -53,16 +55,23 @@ export default function ThingsInCommonEditPage({
       transition: Flip,
     });
 
-  const addItem = async (event) => {
+  const addNewThing = async (event) => {
     const form = event.target;
     event.preventDefault();
     if (!newThingInput.trim()) {
       notifyError();
       form["thing"].parentElement.classList.add("input--error");
     } else {
-      const response = await axios.post();
-      console.log(response);
-      setDetailEdited(true);
+      try {
+        await axios.post(`${import.meta.env.VITE_API_URL}/things-in-common/`, {
+          "friendship-id": friendshipId,
+          description: newThingInput,
+        });
+        setDetailEdited(true);
+        notifySuccess();
+      } catch (error) {
+        console.error("unable to add a new thing in common", error);
+      }
     }
   };
 
@@ -80,7 +89,7 @@ export default function ThingsInCommonEditPage({
       <div className="things-in-common-edit">
         <Heading heading="things in common" />
 
-        <form className="things-in-common-edit__form" onSubmit={addItem}>
+        <form className="things-in-common-edit__form" onSubmit={addNewThing}>
           <div className="things-in-common-edit__image">
             <SubHeading text="add more" />
             <Input
